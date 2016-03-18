@@ -1,0 +1,51 @@
+﻿{
+    "name": "__MSG_name__",
+    "version": "0.9.1",
+    "default_locale": "en",
+    "description": "__MSG_description__",
+    "icons": {
+       "16": "icons/icon16.png",
+       "32": "icons/icon32.png",
+       "48": "icons/icon48.png",
+       "128": "icons/icon128.png"
+    },
+    "page_action": {
+        "icon": {
+            "20": "icons/icon20.png",
+            "25": "icons/icon25.png",
+            "30": "icons/icon30.png",
+            "40": "icons/icon40.png"
+        },
+        "title": "__MSG_pageatitle__"
+    },
+    "permissions": [
+        "contextMenus",
+        "tabs",
+        "storage",
+        "activeTab",
+        "<all_urls>"
+    ],
+    "background": {
+        "page": "background.html"
+    },
+    "options_page": "options.html",
+    "minimum_edge_version": "33.14281.1000.0",
+    "web_accessible_resources": [
+      "images/minimize_on.png",
+      "images/minimize.png",
+      "icons/icon16.png",
+      "icons/icon16@2x.png",
+      "js/injected.js",
+      "images/theater.jpg",
+      "images/Smoke10.png",
+      "images/cloud.png"
+    ],
+    "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "css" : ["css/light.css"],
+      "js": ["js/content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
