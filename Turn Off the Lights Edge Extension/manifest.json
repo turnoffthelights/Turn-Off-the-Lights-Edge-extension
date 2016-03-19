@@ -1,6 +1,7 @@
 ﻿{
     "name": "__MSG_name__",
-    "version": "0.9.1",
+    "version": "3.2.0.10",
+    "locale": "en",
     "default_locale": "en",
     "description": "__MSG_description__",
     "icons": {
@@ -16,7 +17,7 @@
             "30": "icons/icon30.png",
             "40": "icons/icon40.png"
         },
-        "title": "__MSG_pageatitle__"
+        "title": "Turn Off the Lights"
     },
     "permissions": [
         "contextMenus",
