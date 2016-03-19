@@ -13,11 +13,11 @@ When the installation is complete, you see a Welcome page. And the Welcome Guide
 If you go now to www.youtube.com/c/turnoffthelights you see the gray lamp button in the address bar.
 With one single click it dims the page and highlight automatically the video player.
 
-KNOW ISSUE
+KNOW ISSUES
 + There is no "Options" button visible in the Edge extension sidebar.
 + Few features is disabled in the Edge extension, such as the "Camera Motion" and "Speech" (later the Cortana).
 + Can't load the extension -> permission issue. Run the cmd script again.
-
++ No support for Chrome Storage Sync -> use the Chrome Storage Local
 
 All feedback is welcome on
 https://www.turnoffthelights.com/support
