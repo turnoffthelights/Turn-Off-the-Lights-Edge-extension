@@ -2,12 +2,26 @@ Thanks for checking out Turn Off the Lights Microsoft Edge Extension!
 PREVIEW Turn Off the Lights v3.2.0.10
 
 Instructions:
-  1.  Open Microsoft Edge
-  2.  Click the "..." button and then select "Extensions"
-  3.  Click the "Load unpacked extension" button
-  4.  Using the folder picker, browse and then select the "Turn Off the Lights Edge Extension" folder
-  5.  Click the "Select folder" button
+	1. Open Microsoft Edge
+	2. Click the "..." button and then select "Extensions"
+	3. Click the "Load unpacked extension" button
+	4. Using the folder picker, browse and then select the "Turn Off the Lights Edge Extension" folder
+	5. Click the "Select folder" button
+
+HOW IT WORKS?
+When the installation is complete, you see a Welcome page. And the Welcome Guide (with sample HTML5 video player to test the lights on/off).
+If you go now to www.youtube.com/c/turnoffthelights you see the gray lamp button in the address bar.
+With one single click it dims the page and highlight automatically the video player.
+
+KNOW ISSUE
++ There is no "Options" button visible in the Edge extension sidebar.
++ Few features is disabled in the Edge extension, such as the "Camera Motion" and "Speech" (later the Cortana).
++ Can't load the extension -> permission issue. Run the cmd script again.
+
+
+All feedback is welcome on
+https://www.turnoffthelights.com/support
 
 Thanks,
 Turn Off the Lights
-www.turnoffthelights.com
+https://www.turnoffthelights.com
