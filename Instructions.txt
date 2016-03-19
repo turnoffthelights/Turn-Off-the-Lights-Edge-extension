@@ -20,6 +20,11 @@ KNOW ISSUES
 + No support for Chrome Storage Sync -> use the Chrome Storage Local
 + No support context menu (right click menu)
 
+OPEN THE OPTIONS PAGE
+Paste the extension ID in your URL box.(Workaround)
+ms-browser-extension://MSGname_sdzsm1k4cng40/options.html
+
+
 All feedback is welcome on
 https://www.turnoffthelights.com/support
 
