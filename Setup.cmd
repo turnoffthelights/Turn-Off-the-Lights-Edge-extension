@@ -1,4 +1,4 @@
-SET SourcePath="%CD%\source"
+SET SourcePath="%CD%\Turn Off the Lights Edge Extension"
 
 ECHO Attempting to set access permissions on directory . . .
 ECHO.
