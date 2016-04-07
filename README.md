@@ -17,3 +17,5 @@ How to install this Edge extension? Here a Help video
 Screenshot
 <br>
 <img src="https://www.turnoffthelights.com/blog/wp-content/uploads/2016/03/turn-off-the-lights-edge-extension-windows-10-insider-1024x639.png">
+<br>
+<img src="https://www.turnoffthelights.com/blog/wp-content/uploads/2016/04/turn-off-the-lights-edge-extension-options-page-1024x640.png">
