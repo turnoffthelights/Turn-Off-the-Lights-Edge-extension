@@ -28,11 +28,11 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 //================================================
 
 if (typeof safari !== "undefined") {
-  chrome = {
+  browser = {
     i18n: {
       getMessage: function(messageID, args) {
         var i;
-        if (typeof chrome.i18n.strings === "undefined") {
+        if (typeof browser.i18n.strings === "undefined") {
           var languages = [navigator.language.replace('-', '_')];
           if (navigator.language.length > 2) {
             languages.push(navigator.language.substring(0, 2));
@@ -40,7 +40,7 @@ if (typeof safari !== "undefined") {
           if (navigator.language !== "en") {
             languages.push("en");
           }
-          chrome.i18n.strings = {};
+          browser.i18n.strings = {};
 
           // Translation
           var fetchAndParse = function(locale) {
@@ -51,7 +51,7 @@ if (typeof safari !== "undefined") {
                 var parsed = JSON.parse(this.responseText);
                 var string;
                 for (string in parsed) {
-                  if (!chrome.i18n.strings[string]) {
+                  if (!browser.i18n.strings[string]) {
                     var result = parsed[string].message;
                     // Parse placeholders
                     var ph = parsed[string].placeholders;
@@ -62,7 +62,7 @@ if (typeof safari !== "undefined") {
                         result = result.replace(rgx, ph[phID].content);
                       }
                     }
-                    chrome.i18n.strings[string] = result;
+                    browser.i18n.strings[string] = result;
                   }
                 }
               }
@@ -81,7 +81,7 @@ if (typeof safari !== "undefined") {
         } else if (!args) {
           args = [];
         }
-        var edited = chrome.i18n.strings[messageID].replace(/\$\$/g, "@@@@"); // $$ shouldn't get escaped
+        var edited = browser.i18n.strings[messageID].replace(/\$\$/g, "@@@@"); // $$ shouldn't get escaped
         for (i=0; i<args.length; i++) {
           var rgx = new RegExp("(?!\\$\\$)\\$" + (i+1), "g");
           edited = edited.replace(rgx, args[i]);
@@ -96,7 +96,7 @@ if (typeof safari !== "undefined") {
 // Search for data and translate it to current use language
 items = document.querySelectorAll("[data-i18n]");
 for (i=0; i<items.length; i++) {
-  var translation = chrome.i18n.getMessage(items[i].getAttribute("data-i18n"));
+  var translation = browser.i18n.getMessage(items[i].getAttribute("data-i18n"));
   if (items[i].value === "i18n") {
     items[i].value = translation;
   } else {

@@ -1,6 +1,6 @@
 ﻿{
     "name": "__MSG_name__",
-    "version": "3.2.0.11",
+    "version": "3.2.0.12",
     "locale": "en",
     "default_locale": "en",
     "description": "__MSG_description__",
@@ -29,10 +29,10 @@
     ],
     "background": {
     	"page": "background.html",
-	"persistent": false
+	    "persistent": false
     },
     "options_page": "options.html",
-    "minimum_edge_version": "33.14281.1000.0",
+    "minimum_edge_version": "37.14316.1000.0",
     "web_accessible_resources": [
       "images/minimize_on.png",
       "images/minimize.png",

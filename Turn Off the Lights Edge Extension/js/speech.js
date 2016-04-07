@@ -27,6 +27,14 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 */
 //================================================
 
+if (typeof msBrowser !== 'undefined') {
+    chrome = msBrowser;
+}
+else if (typeof browser != 'undefined') {
+    chrome = browser;
+}
+
+
 document.addEventListener('DOMContentLoaded', function() { speechrecognition(); },false);
 chrome.storage.onChanged.addListener(function() { speechrecognition(); });
 
