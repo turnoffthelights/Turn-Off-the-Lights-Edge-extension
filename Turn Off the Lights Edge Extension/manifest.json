@@ -1,9 +1,10 @@
 ﻿{
     "name": "__MSG_name__",
-    "version": "3.2.0.10",
+    "version": "3.2.0.11",
     "locale": "en",
     "default_locale": "en",
     "description": "__MSG_description__",
+    "author": "Stefan vd",
     "icons": {
        "16": "icons/icon16.png",
        "32": "icons/icon32.png",
@@ -11,13 +12,13 @@
        "128": "icons/icon128.png"
     },
     "page_action": {
-        "icon": {
+        "default_icon": {
             "20": "icons/icon20.png",
             "25": "icons/icon25.png",
             "30": "icons/icon30.png",
             "40": "icons/icon40.png"
         },
-        "title": "Turn Off the Lights"
+        "default_title": "Turn Off the Lights"
     },
     "permissions": [
         "contextMenus",
@@ -27,7 +28,8 @@
         "<all_urls>"
     ],
     "background": {
-        "page": "background.html"
+    	"page": "background.html",
+	"persistent": false
     },
     "options_page": "options.html",
     "minimum_edge_version": "33.14281.1000.0",
