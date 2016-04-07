@@ -1,5 +1,5 @@
 # Turn-Off-the-Lights-Edge-extension
-Microsoft Edge (tested on Windows 10 14136)
+Microsoft Edge (tested on Windows 10 build 14136)
 
 *Turn Off the Lights Edge extension. Preview!* <br>
 Read the "Instructions.txt" file to get the "Turn Off the Lights" Edge extension (Preview) in your Edge web browser.
