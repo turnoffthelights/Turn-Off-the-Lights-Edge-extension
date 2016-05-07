@@ -1,5 +1,5 @@
 Thanks for checking out Turn Off the Lights Microsoft Edge Extension!
-PREVIEW Turn Off the Lights v3.2.0.12
+PREVIEW Turn Off the Lights v3.2.0.13
 
 Instructions:
 	1. Open Microsoft Edge
@@ -14,9 +14,8 @@ If you go now to www.youtube.com/c/turnoffthelights you see the gray lamp button
 With one single click it dims the page and highlight automatically the video player.
 
 KNOW ISSUES
-+ In the Options page, Settings doesn't save.
-+ In the Options page, no preview of YouTube player and crash TOtL Guide
-+ Can't load the extension -> permission issue. Run the cmd script again.
++ In the Options page, no preview of YouTube player and crash TOtL Guide.
++ Can't load the extension -> permission issue. Run the cmd script again. And restart the browser.
 + No support for Chrome Storage Sync -> use the Chrome Storage Local.
 + No support context menu (right click menu).
 

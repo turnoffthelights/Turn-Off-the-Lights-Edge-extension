@@ -27,6 +27,14 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 */
 //================================================
 
+if (typeof msBrowser !== 'undefined') {
+    chrome = msBrowser;
+}
+else if (typeof browser != 'undefined') {
+    chrome = browser;
+}
+
+
 /* inject script for autoplay */
 try {
 var script = document.createElement("script");script.type = "text/javascript";script.src = chrome.extension.getURL("/js/injected.js");document.getElementsByTagName("head")[0].appendChild(script);
@@ -46,7 +54,7 @@ if (window.location.href.match(/http:\/\/(.*stefanvd\.net\/.*|www\.stefanvd\.net
 }
 /* -------------------------------------------------- */
 
-chrome.storage.sync.get(['autoplay', 'eastereggs', 'shortcutlight', 'eyen', 'eyea', 'eyealist', 'contextmenus', 'excludedDomains', 'nighttime', 'begintime', 'endtime', 'ambilight', 'ambilightrangeblurradius', 'ambilightrangespreadradius', 'ambilightfixcolor', 'ambilightvarcolor', 'ambilightcolorhex', 'ambilight4color', 'ambilight1colorhex', 'ambilight2colorhex', 'ambilight3colorhex', 'ambilight4colorhex', 'ecosaver', 'ecosavertime', 'autoplayonly', 'autoplayDomains', 'interval', 'maxquality', 'autowidthyoutube', 'customqualityyoutube', 'atmosphereonly', 'atmosphereDomains', 'nighttheme', 'nightonly', 'nightDomains', 'nightenabletheme', 'autoplaydelay', 'autoplaydelaytime', 'atmosvivid','autoplaychecklistwhite','autoplaychecklistblack','nighthover','nightactivetime','nmbegintime','nmendtime','nightmodechecklistblack','nightmodechecklistwhite','nmtopleft','nmtopright','nmbottomright','nmbottomleft','nmcustom','nmcustomx','nmcustomy','lampandnightmode','autostop','autostoponly','autostopDomains','autostopchecklistwhite','autostopchecklistblack','eyechecklistwhite','eyechecklistblack','nightmodebck','nightmodetxt','no360youtube','videotool','reflection','reflectionamount','videotoolonly','videotoolDomains','videotoolchecklistwhite','videotoolchecklistblack'], function(response){
+chrome.storage.local.get(['autoplay', 'eastereggs', 'shortcutlight', 'eyen', 'eyea', 'eyealist', 'contextmenus', 'excludedDomains', 'nighttime', 'begintime', 'endtime', 'ambilight', 'ambilightrangeblurradius', 'ambilightrangespreadradius', 'ambilightfixcolor', 'ambilightvarcolor', 'ambilightcolorhex', 'ambilight4color', 'ambilight1colorhex', 'ambilight2colorhex', 'ambilight3colorhex', 'ambilight4colorhex', 'ecosaver', 'ecosavertime', 'autoplayonly', 'autoplayDomains', 'interval', 'maxquality', 'autowidthyoutube', 'customqualityyoutube', 'atmosphereonly', 'atmosphereDomains', 'nighttheme', 'nightonly', 'nightDomains', 'nightenabletheme', 'autoplaydelay', 'autoplaydelaytime', 'atmosvivid','autoplaychecklistwhite','autoplaychecklistblack','nighthover','nightactivetime','nmbegintime','nmendtime','nightmodechecklistblack','nightmodechecklistwhite','nmtopleft','nmtopright','nmbottomright','nmbottomleft','nmcustom','nmcustomx','nmcustomy','lampandnightmode','autostop','autostoponly','autostopDomains','autostopchecklistwhite','autostopchecklistblack','eyechecklistwhite','eyechecklistblack','nightmodebck','nightmodetxt','no360youtube','videotool','reflection','reflectionamount','videotoolonly','videotoolDomains','videotoolchecklistwhite','videotoolchecklistblack'], function(response){
 autoplay = response['autoplay'];
 eastereggs = response['eastereggs'];
 shortcutlight = response['shortcutlight'];
@@ -150,7 +158,7 @@ window.addEventListener('keydown', function(e) {
 		// Run code for CTRL+SHIFT+L
 			// Shortcutlight
 			if(shortcutlight == true){
-				chrome.extension.sendMessage({name: 'automatic'});
+				chrome.runtime.sendMessage({name: 'automatic'});
 			}
 		}
 
@@ -172,7 +180,7 @@ window.addEventListener('keydown', function(e) {
 			if(shortcutlight == true){
 			if($('stefanvdlightareoff1')){
 				var F9saving = Math.round(($('stefanvdlightareoff1').style.opacity)*100);
-				chrome.extension.sendMessage({'name' : 'readersaveme', 'value' : F9saving});
+				chrome.runtime.sendMessage({'name' : 'readersaveme', 'value' : F9saving});
 			}
 			}
 		}
@@ -224,7 +232,7 @@ window.addEventListener('keydown', function(e) {
 			// Shortcutlight
 			if(shortcutlight == true){
 			// all tabs lights off
-			chrome.extension.sendMessage({name: 'emergencyalf'});
+			chrome.runtime.sendMessage({name: 'emergencyalf'});
 			}
 		}
 		
@@ -245,7 +253,7 @@ window.addEventListener('keydown', function(e) {
 				neweyediv.setAttribute('id','stefanvdlightseye');
 				neweyediv.textContent = "" + i18ntiteleye + " " + i18neyedivoff + "";
 				document.body.appendChild(neweyediv);
-				chrome.extension.sendMessage({'name' : 'eyesavemeOFF', 'value' : eyeoptionvalue});
+				chrome.runtime.sendMessage({'name' : 'eyesavemeOFF', 'value' : eyeoptionvalue});
 			}
 			else{var eyeoptionvalue = true;	
 			var stefanvdlightseye = $('stefanvdlightseye');
@@ -255,7 +263,7 @@ window.addEventListener('keydown', function(e) {
 				neweyediv.setAttribute('id','stefanvdlightseye');
 				neweyediv.textContent = "" + i18ntiteleye + " " + i18neyedivon + "";
 				document.body.appendChild(neweyediv);
-				chrome.extension.sendMessage({'name' : 'eyesavemeON', 'value' : eyeoptionvalue});
+				chrome.runtime.sendMessage({'name' : 'eyesavemeON', 'value' : eyeoptionvalue});
 			}
 			
 			// remove div after 3s
@@ -355,12 +363,12 @@ var gracePeriod = 250, lastEvent = null, timeout = null;
 			if(autoplaydelay == true){
 			var delaytime = autoplaydelaytime * 1000;
 			godelay = window.setTimeout(function(){
-				if (blackon) {chrome.extension.sendMessage({name: 'automatic'});}
+				if (blackon) {chrome.runtime.sendMessage({name: 'automatic'});}
 				else {} // do nothing
 				window.clearTimeout(godelay);
 			},delaytime);
 			} else {
-				if (blackon) {chrome.extension.sendMessage({name: 'automatic'});}
+				if (blackon) {chrome.runtime.sendMessage({name: 'automatic'});}
 				else {} // do nothing
 			}
 		}
@@ -369,7 +377,7 @@ var gracePeriod = 250, lastEvent = null, timeout = null;
 		if (player !== null) {
 		var blackon = $('stefanvdlightareoff1');
 			if (blackon) {} // do nothing
-			else {chrome.extension.sendMessage({name: 'automatic'});}		
+			else {chrome.runtime.sendMessage({name: 'automatic'});}		
 			if(autoplaydelay == true){
 				try{window.clearTimeout(godelay);}catch(e){}
 			}
@@ -816,9 +824,9 @@ function eyeprotection(){
 // normal use only enabled -> do nothing
 
 // normal use -> only screensaver is enabled wirh a value for nighttime (true or false)
-if((ecosaver == true) && (eyen == true)){chrome.extension.sendMessage({name: 'automatic'});}
+if((ecosaver == true) && (eyen == true)){chrome.runtime.sendMessage({name: 'automatic'});}
 
-if(eyea == true){chrome.extension.sendMessage({name: 'automatic'});}
+if(eyea == true){chrome.runtime.sendMessage({name: 'automatic'});}
 else if(eyealist == true){
 var currenturl = window.location.protocol + '//' + window.location.host;
 var eyerabbit = false;
@@ -830,7 +838,7 @@ if(typeof excludedDomains == "string") {
         eyebuf.sort();
 		for(var i = 0; i < eyebuf.length; i++){
 			if(eyechecklistwhite == true){
-				if(currenturl == eyebuf[i]){chrome.extension.sendMessage({name: 'automatic'});}
+				if(currenturl == eyebuf[i]){chrome.runtime.sendMessage({name: 'automatic'});}
 			}
 			else if(eyechecklistblack == true){
 				if(currenturl == eyebuf[i]){eyerabbit=true;}
@@ -838,7 +846,7 @@ if(typeof excludedDomains == "string") {
 		}
     }
 	if(eyechecklistblack == true){
-		if(eyerabbit == false){chrome.extension.sendMessage({name: 'automatic'});eyerabbit = false;}
+		if(eyerabbit == false){chrome.runtime.sendMessage({name: 'automatic'});eyerabbit = false;}
 	}
 }
 }
@@ -892,8 +900,8 @@ eyedojob();
 else{eyedojob();} // no night time
 
 // context menu
-if(contextmenus == true){chrome.extension.sendMessage({name: 'contextmenuon'});}
-else {chrome.extension.sendMessage({name: 'contextmenuoff'});}
+if(contextmenus == true){chrome.runtime.sendMessage({name: 'contextmenuon'});}
+else {chrome.runtime.sendMessage({name: 'contextmenuoff'});}
 
 // ambilight time
 if(ambilight == true){
@@ -1397,7 +1405,7 @@ function gogonightmode(){
 			var ytdivcomments = document.querySelectorAll('div.comments');
 			for(var i = 0; i < ytdivcomments.length; i++ ){ytdivcomments[i].style.color = "#999";}
 
-			chrome.extension.sendMessage({name: 'adddarkyoutube'});
+			chrome.runtime.sendMessage({name: 'adddarkyoutube'});
 		}
 //-----
     } else {
@@ -1488,7 +1496,7 @@ function gogonightmode(){
 			var ytdivcomments = document.querySelectorAll('div.comments');
 			for(var i = 0; i < ytdivcomments.length; i++ ){ytdivcomments[i].style.color = "black";}
 			
-			chrome.extension.sendMessage({name: 'addnormalyoutube'});
+			chrome.runtime.sendMessage({name: 'addnormalyoutube'});
 		}
 	}
 }
@@ -1669,8 +1677,8 @@ document.onmouseup = function(){ this.dragapproved = 0;
 if(nmcustom == true){
 var getnmcx = $('stefanvdnighttheme').style.left;
 var getnmcy = $('stefanvdnighttheme').style.bottom;
-chrome.extension.sendMessage({'name' : 'nmcustomx', 'value' : getnmcx});
-chrome.extension.sendMessage({'name' : 'nmcustomy', 'value' : getnmcy});
+chrome.runtime.sendMessage({'name' : 'nmcustomx', 'value' : getnmcx});
+chrome.runtime.sendMessage({'name' : 'nmcustomy', 'value' : getnmcy});
 }
 }
 },

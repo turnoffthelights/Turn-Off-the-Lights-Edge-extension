@@ -981,7 +981,7 @@ chrome.storage.local.get(['mousespotlighto', 'mousespotlightc', 'mousespotlighta
 mousespotlighto = response['mousespotlighto'];if(mousespotlighto == null)mousespotlighto = true; // default mousespotlight true
 mousespotlightc = response['mousespotlightc'];if(mousespotlightc == null)mousespotlightc = false; // default mousespotlight false
 mousespotlighta = response['mousespotlighta'];if(mousespotlighta == null)mousespotlighta = false; // default mousespotlight false
-lightcolor = response['lightcolor'];if(lightcolor)lightcolor = response['lightcolor'];else lightcolor = '#000000'; // default color black
+lightcolor = response['lightcolor']; if (lightcolor) lightcolor = response['lightcolor']; else lightcolor = '#000000'; // default color black
 lightimagea = response['lightimagea'];
 lightimage = response['lightimage'];
 interval = response['interval'];if(interval == null)interval = 80; default_opacity = interval; // default interval 80%
@@ -1524,7 +1524,7 @@ if(stretchable)  {
 			// disable for on YouTube website
 			if (window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){}
 			else{
-			/*chrome.extension.sendMessage({name: 'currenttabforblur'}, function(response) {
+			/*chrome.runtime.sendMessage({name: 'currenttabforblur'}, function(response) {
 				var img = response.screenshotUrl;
 				var newblur = document.createElement('img');
 				newblur.setAttribute('id','stefanvdblurimage');

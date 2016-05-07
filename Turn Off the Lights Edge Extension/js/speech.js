@@ -45,13 +45,13 @@ var userSaid = function(str, s) {return str.indexOf(s) > -1;}
 
 function removespeechinfo(){
 // you are speaking now -- remove the bubble
-chrome.extension.sendMessage({'name' : 'slidersave', 'value' : true});
+chrome.runtime.sendMessage({'name' : 'slidersave', 'value' : true});
 chrome.tabs.getSelected(null, function(tab) {if (tab.url.match(/^http/i)){chrome.tabs.executeScript(tab.id, {file: "js/speechbubbleremove.js"});}});											
 }
 
 function addspeechinfo(){
 // you are speaking now -- add the bubble
-chrome.extension.sendMessage({'name' : 'slidersave', 'value' : true});						
+chrome.runtime.sendMessage({'name' : 'slidersave', 'value' : true});						
 chrome.tabs.getSelected(null, function(tab) {if (tab.url.match(/^http/i)){chrome.tabs.executeScript(tab.id, {file: "js/speechbubbleadd.js"});}});
 }
 
