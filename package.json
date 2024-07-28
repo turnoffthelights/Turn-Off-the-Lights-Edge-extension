@@ -1,0 +1,14 @@
+{
+  "name": "turn-off-the-lights-edge-extension",
+  "version": "4.4.10",
+  "description": "Edge extension",
+  "homepage": "https://wwww.turnoffthelights.com",
+  "author": "Stefan Van Damme",
+  "license": "GPL-2.0",
+  "devDependencies": {
+    "eslint": "^7.17.0"
+  },
+  "scripts": {
+    "create-zip": "cd src && find . -name '.DS_Store' -type f -delete && zip -r ../$npm_package_name-$npm_package_version.zip * && mv ../$npm_package_name-$npm_package_version.zip ../dist/"
+  }
+}
